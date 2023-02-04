@@ -27,9 +27,15 @@ body {
 	margin: 2px;
 	box-shadow: 0, 0, 2px #000;
 	transition: 2s;
-	border-radius: 25%;
+	border-radius: 10%;
 }
 
 .square:hover {
 	transition-duration: 0s;
+}
+
+@media (max-width: 500px) {
+	.container {
+		max-width: 300px;
+	}
 }
