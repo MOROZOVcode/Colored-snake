@@ -6,7 +6,7 @@ let SQUARES_QUANTITY;
 if (screenWidth > 500) {
 	SQUARES_QUANTITY = 400;
 } else {
-	SQUARES_QUANTITY = 210;
+	SQUARES_QUANTITY = 357;
 }
 
 for (let i = 0; i < SQUARES_QUANTITY; i++) {

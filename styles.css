@@ -35,7 +35,13 @@ body {
 }
 
 @media (max-width: 500px) {
-	.container {
-		max-width: 300px;
+
+	body {
+		max-height: 100vh;
 	}
+
+	.container {
+		max-width: 350px;
+	}
+
 }
