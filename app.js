@@ -9,6 +9,10 @@ if (screenWidth > 500) {
 	SQUARES_QUANTITY = 357;
 }
 
+document.addEventListener("touchmove", (event) => {
+	event.preventDefault();
+});
+
 for (let i = 0; i < SQUARES_QUANTITY; i++) {
 	const squareNode = document.createElement("div");
 	squareNode.classList.add("square");
@@ -31,7 +35,6 @@ for (let i = 0; i < SQUARES_QUANTITY; i++) {
 		});
 
 		squareNode.addEventListener("touchmove", itemMove);
-		// squareNode.addEventListener("touchend", itemMove);
 	}
 
 	boardNode.append(squareNode);
