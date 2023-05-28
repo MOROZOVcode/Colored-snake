@@ -1,5 +1,7 @@
 const boardNode = document.querySelector('#board');
 
+const backgroundColor = 'rgb(29, 29, 29)';
+
 const screenWidth = window.screen.width;
 let SQUARES_QUANTITY;
 
@@ -49,20 +51,25 @@ function itemMove(event) {
       touchY > square.getBoundingClientRect().top &&
       touchX < square.getBoundingClientRect().right
     ) {
-      if (!core.style.backgroundColor) {
-        setColor(core);
-      }
+      setColor(core);
     }
   });
 }
 
 function setColor(element) {
-  const color = getRandomColor();
-  element.style.backgroundColor = color;
-  element.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`;
+  const style = element.style.backgroundColor;
+
+  if (!style || style === backgroundColor) {
+    const color = getRandomColor();
+
+    element.classList.add('hover');
+    element.style.backgroundColor = color;
+    element.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`;
+  }
 }
 
 function removeColor(element) {
+  element.classList.remove('hover');
   element.style.backgroundColor = '#1d1d1d';
   element.style.boxShadow = `0 0 2px #000`;
 }
