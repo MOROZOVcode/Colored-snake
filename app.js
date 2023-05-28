@@ -9,29 +9,22 @@ if (screenWidth > 500) {
   SQUARES_QUANTITY = 357;
 }
 
-document.addEventListener('touchmove', (event) => {
-  event.preventDefault();
-});
-
 for (let i = 0; i < SQUARES_QUANTITY; i++) {
   const squareNode = document.createElement('div');
+  const coreNode = document.createElement('div');
+
   squareNode.classList.add('square');
+  coreNode.classList.add('core');
+
+  squareNode.append(coreNode);
 
   if (screenWidth > 500) {
-    squareNode.addEventListener('mouseover', () => setColor(squareNode));
-    squareNode.addEventListener('mouseleave', () => removeColor(squareNode));
+    squareNode.addEventListener('mouseover', () => setColor(coreNode));
+    squareNode.addEventListener('mouseleave', () => removeColor(coreNode));
   } else {
-    squareNode.style.transition = '0s';
-    let squareTarget;
+    coreNode.style.transition = '0s';
     squareNode.addEventListener('touchstart', (event) => {
       itemMove(event);
-      if (squareTarget === event.target) {
-        console.log(true);
-      } else {
-        console.log(false);
-      }
-      squareTarget = event.target;
-      console.log(squareTarget);
     });
 
     squareNode.addEventListener('touchmove', itemMove);
@@ -39,7 +32,6 @@ for (let i = 0; i < SQUARES_QUANTITY; i++) {
 
   boardNode.append(squareNode);
 }
-//////////////////////////////////////////////////////////////////////////////////////
 
 let squaresNode = document.querySelectorAll('.square');
 
@@ -50,17 +42,19 @@ function itemMove(event) {
   let touchY = touch.pageY;
 
   squaresNode.forEach((square) => {
+    const core = square.children[0];
     if (
       touchY < square.getBoundingClientRect().bottom &&
       touchX > square.getBoundingClientRect().left &&
       touchY > square.getBoundingClientRect().top &&
       touchX < square.getBoundingClientRect().right
     ) {
-      setColor(square);
+      if (!core.style.backgroundColor) {
+        setColor(core);
+      }
     }
   });
 }
-//////////////////////////////////////////////////////////////////////////////////////
 
 function setColor(element) {
   const color = getRandomColor();
