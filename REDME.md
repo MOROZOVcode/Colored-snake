@@ -23,3 +23,18 @@
 <img src="https://github.com/MOROZOVcode/Colored-snake/blob/main/forReadme/Colored-snake_mobile.gif" alt="screencast" width="40%"/>
 
 ---
+
+> В моём личном блоге есть [_**пост**_](https://t.me/morozov_code/75) об этом проекте.
+
+> Открыть сайт можно по ссылке: [morozovcode.github.io/Colored-snake](https://morozovcode.github.io/Colored-snake/)
+
+- **Установить проект к себе можно следующим образом**:
+
+В терминале вводим следующие команды:
+
+```
+$ git clone https://github.com/MOROZOVcode/Colored-snake.git
+$ cd Colored-snake
+```
+
+Чтобы открыть сайт в режиме разработки, можно вослользоваться плагином «[Live Server](https://visualstudiocode1.ru/ustanovka-i-nastrojka-liveserver-v-vs-code.html)» для вашей IDE или открыть в браузере файл `index.html`(который находится в корне проекта).
